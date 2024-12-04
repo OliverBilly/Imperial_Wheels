@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imperial Wheels - Reset Password</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+        }
+
+        .reset-container {
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .reset-container h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #2a5298;
+        }
+
+        .reset-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .btn-reset {
+            width: 100%;
+            padding: 10px;
+            background: #2a5298;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .reset-container button:hover {
+            background: #1e3c72;
+        }
+
+        .reset-container p {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .reset-container a {
+            color: #2a5298;
+            text-decoration: none;
+        }
+
+        .reset-container a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="reset-container">
+        <h1>Reset Your Password</h1>
+        <form action="#" method="POST" onsubmit="return handleReset()">
+            <input type="email" placeholder="Enter your email" id="reset-email" required>
+            <input type="password" placeholder="New password" id="new-password" required>
+            <input type="password" placeholder="Confirm new password" id="confirm-password" required>
+            <div style="margin-top: 24px; margin-bottom: 24px;">
+                <input type="submit" class="btn-reset" value="Reset Password">
+            </div>
+        </form>
+        <p><a href="login.html">Back to Login</a></p>
+    </div>
+
+    <script>
+        function handleReset() {
+            const email = document.getElementById("reset-email").value.trim();
+            const newPassword = document.getElementById("new-password").value.trim();
+            const confirmPassword = document.getElementById("confirm-password").value.trim();
+
+            if (!email || !newPassword || !confirmPassword) {
+                alert("Please fill in all fields.");
+                return false;
+            }
+
+            if (newPassword !== confirmPassword) {
+                alert("Passwords do not match. Please try again.");
+                return false;
+            }
+
+            alert("Your password has been reset successfully. Please login with your new password.");
+            location.href = "login.html";
+            return false;
+        }
+    </script>
+</body>
+
+</html>
